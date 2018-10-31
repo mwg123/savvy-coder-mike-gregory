@@ -1,0 +1,24 @@
+{
+  "name": "MikeGregory",
+  "version": "1.0.0",
+  "description": "![my face](https://i.skyrock.net/9097/82509097/pics/3208153991_1_2_3MCOiTQy.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwg123/savvy-coder-mike-gregory.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mwg123/savvy-coder-mike-gregory/issues"
+  },
+  "homepage": "https://github.com/mwg123/savvy-coder-mike-gregory#readme",
+  "devDependencies": {
+    "eslint": "^5.8.0",
+    "parcel-bundler": "^1.10.3"
+  }
+}
