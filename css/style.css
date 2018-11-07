@@ -1,0 +1,64 @@
+body {
+    color: red;
+}
+#navigation {
+    background-color: green;
+    display: block;
+}
+h1 {
+    color:midnightblue;
+    font-size: 16px;
+    font-style: italic;
+}
+#header {
+    background-color: hotpink;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#content {
+    background-color: cornflowerblue;
+    padding: 5px; color: green;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.brand {
+    color: blue;
+    font-size: 18px;
+    font-style: initial;
+}
+.container {
+    margin: 0 auto;
+    max-width: 900px;
+    width: 90%;
+}
+
+img {
+    display: block;
+    margin: auto;
+    max-width: 300px;
+    width: 75%;
+}
+#middle {
+    font-size: 9px;
+    font-style: italic;
+    color: purple;
+    padding: 5px;
+}
+
+h3 {
+    background-color: thistle;
+    font-style: unset;
+    font-size: 14px;
+}
+h5 {
+    color: bisque;
+}
+h6 {
+    font-size: 15px;
+}
+#footer {
+    background-color: salmon;
+    padding: 10px;
+}
