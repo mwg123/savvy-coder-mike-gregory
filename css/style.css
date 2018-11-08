@@ -1,37 +1,27 @@
+/*stuff that makes shit pretty*/
+
 body {
     color: red;
 }
-#navigation {
-    background-color: green;
-    display: block;
-}
+
 h1 {
-    color:midnightblue;
+    color: midnightblue;
     font-size: 16px;
     font-style: italic;
 }
-#header {
-    background-color: hotpink;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+
+h3 {
+    background-color: thistle;
+    font-style: unset;
+    font-size: 14px;
 }
-#content {
-    background-color: cornflowerblue;
-    padding: 5px; color: green;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+
+h5 {
+    color: bisque;
 }
-.brand {
-    color: blue;
-    font-size: 18px;
-    font-style: initial;
-}
-.container {
-    margin: 0 auto;
-    max-width: 900px;
-    width: 90%;
+
+h6 {
+    font-size: 15px;
 }
 
 img {
@@ -40,6 +30,41 @@ img {
     max-width: 300px;
     width: 75%;
 }
+
+.brand {
+    color: blue;
+    font-size: 18px;
+    font-style: initial;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 900px;
+    width: 90%;
+}
+
+/*section by section*/
+
+#header {
+    background-color: hotpink;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* #navigation>ul {
+    display: block;
+} */
+
+#content {
+    background-color: cornflowerblue;
+    padding: 5px;
+    color: green;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #middle {
     font-size: 9px;
     font-style: italic;
@@ -47,18 +72,25 @@ img {
     padding: 5px;
 }
 
-h3 {
-    background-color: thistle;
-    font-style: unset;
-    font-size: 14px;
-}
-h5 {
-    color: bisque;
-}
-h6 {
-    font-size: 15px;
-}
 #footer {
     background-color: salmon;
     padding: 10px;
+}
+
+/*navigation bar*/
+
+#navigation {
+    background-color: cyan;
+}
+
+#navigation>ul>li {
+    display: inline;
+}
+
+#navigation .dropdown {
+    display: none;
+}
+
+#navigation a:hover + .dropdown {
+    display: block;
 }
