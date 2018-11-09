@@ -2,12 +2,14 @@
 
 body {
     color: red;
+    margin: 0;
 }
 
 h1 {
     color: midnightblue;
     font-size: 16px;
     font-style: italic;
+    margin: 0;
 }
 
 h3 {
@@ -81,16 +83,27 @@ img {
 
 #navigation {
     background-color: cyan;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    padding: 15px;
 }
 
 #navigation>ul>li {
     display: inline;
+    position: relative;
 }
 
 #navigation .dropdown {
     display: none;
+    left: 0;
+    position: absolute;
+    top: 20px;
+    background-color: cyan;
 }
 
-#navigation a:hover + .dropdown {
+#navigation a:hover + .dropdown, 
+#navigation a + .dropdown:hover {
     display: block;
 }
