@@ -2,12 +2,19 @@
 
 body {
     color: red;
-    margin: 0;
+    display: grid;
+    grid-template-rows: min-content min-content auto min-content;
+    grid-template-areas:
+    "navigation"
+    "header"
+    "content"
+    "footer";
 }
 
 h1 {
     color: midnightblue;
     font-size: 16px;
+    font-family: 'Abril Fatface', cursive;
     font-style: italic;
     margin: 0;
 }
@@ -16,6 +23,12 @@ h3 {
     background-color: thistle;
     font-style: unset;
     font-size: 14px;
+}
+
+h2 {
+    background-color: bisque;
+    color: black;
+    font-size: 15px;
 }
 
 h5 {
@@ -49,9 +62,8 @@ img {
 
 #header {
     background-color: hotpink;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    grid-area: header;
+    
 }
 
 /* #navigation>ul {
@@ -62,20 +74,12 @@ img {
     background-color: cornflowerblue;
     padding: 5px;
     color: green;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#middle {
-    font-size: 9px;
-    font-style: italic;
-    color: purple;
-    padding: 5px;
+    grid-area: content;
 }
 
 #footer {
     background-color: salmon;
+    grid-area: footer;
     padding: 10px;
 }
 
@@ -83,16 +87,23 @@ img {
 
 #navigation {
     background-color: cyan;
-    position: fixed;
+    position: sticky;
+    grid-area: navigation;
     top: 0;
-    left: 0;
-    width: 100vw;
-    padding: 15px;
 }
 
+#navigation > ul {
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0;
+}  
 #navigation>ul>li {
     display: inline;
     position: relative;
+    margin:  0 10px;
 }
 
 #navigation .dropdown {
@@ -103,7 +114,19 @@ img {
     background-color: cyan;
 }
 
-#navigation a:hover + .dropdown, 
-#navigation a + .dropdown:hover {
+#navigation a:hover+.dropdown, #navigation a+.dropdown:hover {
     display: block;
+}
+@media (min-width: 750px) {
+    body {
+        grid-template-columns: 15% auto;
+        grid-template-rows: min-content auto min-content;
+        grid-template-areas:
+        "navigation header"
+        "navigation content"
+        "navigation footer";
+    }
+    #navigation > ul {
+        flex-direction: column;
+    }
 }
