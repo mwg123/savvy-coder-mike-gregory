@@ -3,6 +3,7 @@
 body {
     color: red;
     display: grid;
+    min-height: 100vh;
     grid-template-rows: min-content min-content auto min-content;
     grid-template-areas:
     "navigation"
@@ -20,15 +21,10 @@ h1 {
 }
 
 h3 {
-    background-color: thistle;
+    background-color: purple;
+    color: white;
     font-style: unset;
     font-size: 14px;
-}
-
-h2 {
-    background-color: bisque;
-    color: black;
-    font-size: 15px;
 }
 
 h5 {
@@ -46,6 +42,9 @@ img {
     width: 75%;
 }
 
+p {
+    color: powderblue
+}
 .brand {
     color: blue;
     font-size: 18px;
@@ -73,7 +72,7 @@ img {
 #content {
     background-color: cornflowerblue;
     padding: 5px;
-    color: green;
+    color: yellowgreen;
     grid-area: content;
 }
 

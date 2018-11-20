@@ -31,7 +31,6 @@
     </div>
     <div id="header">
         <h1>Hello World!</h1>
-        <h2>also hello</h2>
         <img src="https://flavorwire.files.wordpress.com/2013/11/calvin-and-hobbes.jpg" alt="">
         <ul>
             <li class="brand">Tyler Krzyzjaniek is a super duper hipster</li>
@@ -70,6 +69,19 @@
         <input type="password">
         <input type="submit">
     </form>
-</body>
+    <script>
+        var greet = function(){
+        var userName =  prompt('What is your name, you big fat idiot?')
+        if(!userName){
+            alert('WRITE YOUR GODDAMN NAME, ASSHOLE!')
+            userName = prompt('What is your name 4 rlz?')
+            greet();
+                } else {
+        alert('Hello ' + userName);
+        }
+    };
 
+    greet();
+    </script>
+</body>
 </html>
