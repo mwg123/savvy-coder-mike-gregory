@@ -1,5 +1,6 @@
-export default `
-<!---substance of the page-->
+export default function Content(){
+    return `
+    <div id="content">
         <h5>A little bit about me:</h5>
         <h6>I love movies, video games, and I physically can't walk by a dog and not pet it. Okay, morally.</h6>
         <h4>My final project</h4>
@@ -16,4 +17,6 @@ export default `
             <li style="font-stretch: semi-condensed;">Second</li>
             <li>Third</li>
         </ol>
-`
+    </div>
+`;
+}
