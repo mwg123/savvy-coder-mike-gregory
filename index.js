@@ -1,67 +1,71 @@
 import Navigation from './src/Navigation';
-
 import Content from './src/Content';
-
 import Footer from './src/Footer';
-
 import Header from './src/Header';
 import greet from './src/Greeting';
+import Navigo from 'navigo';
+import { capitalize } from 'lodash';
+import Store from './src/Store';
+
+// console.log(Navigo);
+
+var router = new Navigo(window.location.origin);
 
 var State = {
-    'active': 'home',
-    'home': {
-        'title': 'Welcome ty my Savvy Coders Portfolio Project'
+    'posts': [],
+    'active': 'Home',
+    'Home': {
+        'title': 'Welcome ty my Savvy Coders Portfolio Project',
+        'links': [ 'blog', 'contact', 'projects' ]
     },
     'blog': {
-        'title': 'Please read my insightful Blog'
+        'title': 'Please read my insightful Blog',
+        'links': [ 'Home', 'contact', 'projects' ]
     },
     'contact': {
-        'title': 'Contact Me'
+        'title': 'Contact Me',
+        'links': [ 'Home', 'blog', 'projects' ]
     },
     'projects': {
-        'title': 'Look upon my works, you jealous asshole!'
+        'title': 'Look upon my works, you jealous asshole!',
+        'links': [ 'Home', 'blog', 'contact' ]
     }
 };
 
+var store = new Store(State);
+
 var root = document.querySelector('#root');
 
-function render(State){ //eslint-disable-line
-    var links;
-
-    root.innerHTML = `
-    ${Header(State)}
-    ${Navigation(State)}
-    ${Content(State)}
-    ${Footer(State)}
-    `;
-
-    links = document.querySelectorAll('#navigation a');
-
-    greet();
-    
-    function handleNavigation(event){
-        event.preventDefault();
-        console.log(event.target.textContent);
-    }
-
-    State.active = event.target.textContent;
-
-    render(State);
-
-    links[0].addEventListener(
-        'click',
-        handleNavigation
-    );
-
-    links[1].addEventListener(
-        'click',
-        handleNavigation
-    );
-
-    links[2].addEventListener(
-        'click',
-        handleNavigation
-    );
+function handleNavigation(params){
+    store.dispatch((state) => {
+        state.active = capitalize(params.page);
+        
+        return state;
+    });
 }
 
-render(State);
+function render(state){
+    root.innerHTML = `
+    ${Header(state)}
+    ${Navigation(state)}
+    ${Content(state)}
+    ${Footer(state)}
+    `;
+
+    greet();
+
+    router.updatePageLinks();
+}
+
+router
+    .on('/:page', handleNavigation)
+    .on('/', () => handleNavigation({ 'page': 'Home' }))
+    .resolve();
+
+fetch('https://jsonplaceholder.typicode.com/posts')
+    .then((response) => response.json())
+    .then((posts) => {
+        State.posts = posts;
+
+        render(State);
+    });
