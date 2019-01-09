@@ -4,10 +4,8 @@ import Footer from './src/Footer';
 import Header from './src/Header';
 import greet from './src/Greeting';
 import Navigo from 'navigo';
-import { capitalize } from 'lodash';
 import Store from './src/Store';
 
-// console.log(Navigo);
 
 var router = new Navigo(window.location.origin);
 
@@ -38,7 +36,7 @@ var root = document.querySelector('#root');
 
 function handleNavigation(params){
     store.dispatch((state) => {
-        state.active = capitalize(params.page);
+        state.active = params.page;
         
         return state;
     });
@@ -57,6 +55,8 @@ function render(state){
     router.updatePageLinks();
 }
 
+store.addListener(render);
+
 router
     .on('/:page', handleNavigation)
     .on('/', () => handleNavigation({ 'page': 'Home' }))
@@ -65,7 +65,9 @@ router
 fetch('https://jsonplaceholder.typicode.com/posts')
     .then((response) => response.json())
     .then((posts) => {
-        State.posts = posts;
+        store.dispatch((state) => {
+            state.posts = posts;
 
-        render(State);
+            return state;
+        });
     });

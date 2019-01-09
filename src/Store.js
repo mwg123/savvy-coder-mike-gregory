@@ -1,12 +1,19 @@
 class Store{
     constructor(state){
         this.state = state;
+        this.listeners = [];
     }
 
     dispatch(reducer){
         this.state = reducer(this.state);
 
-        render(this.state);//eslint-disable-line
+        this.listeners.forEach(
+            (listener) => listener(this.state)
+        );
+    }
+
+    addListener(listener){
+        this.listeners.push(listener);
     }
 }
 
